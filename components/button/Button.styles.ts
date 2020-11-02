@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BlueButton = styled.button`
+export const Wrapper = styled.button`
   color: white;
   background-color: rgb(0, 121, 211);
   :hover {
@@ -10,10 +10,8 @@ const BlueButton = styled.button`
   font-size: 12px;
   width: 106px;
   height: 32px;
-  border: 1px solid transparent;
+  border: none;
   font-weight: 700;
-  font-family: 'IBM Plex Sans', sans-serif;
   text-align: center;
+  cursor: pointer;
 `;
-
-export default BlueButton;

@@ -21,23 +21,13 @@ const communities = [
   },
 ];
 
-export default function Home() {
+const Home = () => {
   return (
     <AppWrapper>
       <GlobalStyle />
-      <style jsx global>{`
-        html,
-        body {
-          // background-color: blue;
-          font-family: 'IBM Plex Sans', sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-
       <Trending communities={communities} />
     </AppWrapper>
   );
-}
+};
+
+export default Home;

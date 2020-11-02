@@ -8,8 +8,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 14px;
-  padding: 11px;
-  padding-bottom: 23px;
+  padding: 11px 11px 23px 11px;
   font-weight: 700;
 `;
 
@@ -17,9 +16,7 @@ const Community = styled.div`
   display: flex;
   justify-content: space-between;
   background: white;
-  padding-bottom: 20px;
-  padding-left: 12px;
-  padding-right: 8px;
+  padding: 0px 8px 20px 12px;
 `;
 
 const Details = styled.div`
@@ -42,10 +39,8 @@ const Info = styled.div`
 `;
 
 const CommunityTitle = styled.a`
-  color: inherit;
   line-height: 16px;
   padding-bottom: 4px;
-  text-decoration: inherit;
   :hover {
     text-decoration: underline;
   }
