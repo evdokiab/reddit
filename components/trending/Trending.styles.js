@@ -41,6 +41,8 @@ export const Info = styled.div`
 export const CommunityTitle = styled.a`
   line-height: 16px;
   padding-bottom: 4px;
+  text-decoration: none;
+  color: rgb(26, 26, 27);
   :hover {
     text-decoration: underline;
   }
