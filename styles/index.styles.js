@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
-*/
+	*/
 
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -52,13 +52,13 @@ const GlobalStyle = createGlobalStyle`
 		border-spacing: 0;
 	}
 
-	body{
+	body {
 			background-color:#dae0e6;
 			margin: 30px;
 			color: rgb(26, 26, 27);
 		}
 
-		* {
+		*, body { 
 			font-family: "IBM Plex Sans", sans-serif;
 		}
 

@@ -1,7 +1,4 @@
-import Head from 'next/head';
-
 import Trending from '../components/trending/Trending';
-import styles from '../styles/Home.module.css';
 import { AppWrapper, GlobalStyle } from '../styles/index.styles';
 
 const communities = [

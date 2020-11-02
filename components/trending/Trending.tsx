@@ -12,26 +12,22 @@ import {
   Wrapper,
 } from './Trending.styles';
 
-const Trending = ({ communities }) => {
-  return (
-    <Wrapper>
-      <Title>Trending Communities</Title>
-      {communities.map((community) => (
-        <Community key={community.title}>
-          <Details>
-            <Image src={community.image} />
-            <Info>
-              <CommunityTitle href={community.url}>
-                {community.title}
-              </CommunityTitle>
-              <Members>{community.members} members</Members>
-            </Info>
-          </Details>
-          <Button text="JOIN" />
-        </Community>
-      ))}
-    </Wrapper>
-  );
-};
+const Trending = ({ communities }) => (
+  <Wrapper>
+    <Title>Trending Communities</Title>
+    {communities.map(({ title, url, members, image }) => (
+      <Community key={title}>
+        <Details>
+          <Image src={image} />
+          <Info>
+            <CommunityTitle href={url}>{title}</CommunityTitle>
+            <Members>{members} members</Members>
+          </Info>
+        </Details>
+        <Button text="JOIN" />
+      </Community>
+    ))}
+  </Wrapper>
+);
 
 export default Trending;
