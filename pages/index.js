@@ -23,7 +23,6 @@ const Home = () => {
     <AppWrapper>
       <GlobalStyle />
       <Trending communities={communities} />
-      <br />
     </AppWrapper>
   );
 };
