@@ -1,4 +1,4 @@
-const request = async (query) => {
+const request = async (query: string): Promise<unknown> => {
   const spreadsheetId = '1HbGGv7ihEW7uHkU4znlLL8FwJPBb-wQ3CFZlYfUtbDk';
   const response = await fetch(
     `https://api.graphqlsheet.com/api/${spreadsheetId}`,

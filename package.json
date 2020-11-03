@@ -6,7 +6,7 @@
     "start": "next dev",
     "build": "next build",
     "start:production": "next start",
-    "lint": "eslint --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
     "next": "9.5.5",
