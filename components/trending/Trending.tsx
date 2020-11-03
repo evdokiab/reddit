@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '../button/Button';
+import Card from '../card/Card';
 import {
   Community,
   CommunityTitle,
@@ -8,13 +9,10 @@ import {
   Image,
   Info,
   Members,
-  Title,
-  Wrapper,
 } from './Trending.styles';
 
 const Trending = ({ communities }) => (
-  <Wrapper>
-    <Title>Trending Communities</Title>
+  <Card title="Trending Communities">
     {communities.map(({ title, url, members, image }) => (
       <Community key={title}>
         <Details>
@@ -27,7 +25,7 @@ const Trending = ({ communities }) => (
         <Button text="JOIN" />
       </Community>
     ))}
-  </Wrapper>
+  </Card>
 );
 
 export default Trending;
