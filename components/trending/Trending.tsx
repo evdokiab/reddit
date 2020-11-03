@@ -9,7 +9,7 @@ import {
   Info,
   Members,
   Title,
-  Wrapper,
+  Wrapper
 } from './Trending.styles';
 
 const Trending = ({ communities }) => (
