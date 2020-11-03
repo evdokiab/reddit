@@ -8,7 +8,7 @@ import {
   Details,
   Image,
   Info,
-  Members,
+  Members
 } from './Trending.styles';
 
 const Trending = ({ communities }) => (
