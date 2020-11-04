@@ -4,7 +4,7 @@ import Trending from '../components/trending/Trending';
 import request from '../modules/request';
 import { AppWrapper, GlobalStyle } from '../styles/index.styles';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const [data, setData] = useState([]);
 
   useEffect(() => {

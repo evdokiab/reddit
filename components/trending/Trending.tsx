@@ -11,7 +11,18 @@ import {
   Members
 } from './Trending.styles';
 
-const Trending = ({ communities }) => (
+interface Community {
+  title: string;
+  url: string;
+  members: number;
+  image: string;
+}
+
+interface TrendingProps {
+  communities: Community[];
+}
+
+const Trending = ({ communities }: TrendingProps): JSX.Element => (
   <Card title="Trending Communities">
     {communities.map(({ title, url, members, image }) => (
       <Community key={title}>
