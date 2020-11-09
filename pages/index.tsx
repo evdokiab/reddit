@@ -2,8 +2,12 @@ import { GetStaticProps } from 'next';
 
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
-import { HomeProps } from '../src/types';
+import { CommunityType } from '../src/types';
 import { AppWrapper, GlobalStyle } from '../styles/index.styles';
+
+export interface HomeProps {
+  communities: CommunityType[];
+}
 
 const Home = ({ communities }: HomeProps): JSX.Element => {
   return (
@@ -19,13 +23,13 @@ export const getStaticProps: GetStaticProps = async () => {
   // Call an external API endpoint to get communities
 
   const query = `{
-                   get {
-                     title
-                     url
-                     image
-                     members
-                   }
-                 }`;
+    get {
+      title
+      url
+      image
+      members
+    } 
+  }`;
 
   const communities = await request(query);
 
