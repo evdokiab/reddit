@@ -14,4 +14,8 @@ export const Wrapper = styled.button`
   font-weight: 700;
   text-align: center;
   cursor: pointer;
+  :disabled {
+    background-color: #7fbce9;
+    cursor: default;
+  }
 `;
