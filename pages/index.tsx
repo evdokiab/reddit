@@ -1,35 +1,45 @@
-import { useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
 
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
+import { CommunityType } from '../src/types';
 import { AppWrapper, GlobalStyle } from '../styles/index.styles';
 
-const Home = (): JSX.Element => {
-  const [data, setData] = useState([]);
+export interface HomeProps {
+  communities: CommunityType[];
+}
 
-  useEffect(() => {
-    const queryData = async () => {
-      const query = `{
-        get {
-          title
-          url
-          image
-          members
-        }
-      }`;
-
-      const response = await request(query);
-      setData(response);
-    };
-    queryData();
-  }, []);
-
+const Home = ({ communities }: HomeProps): JSX.Element => {
   return (
     <AppWrapper>
       <GlobalStyle />
-      <Trending communities={data} />
+      <Trending communities={communities} />
     </AppWrapper>
   );
+};
+
+// This function gets called at build time
+export const getStaticProps: GetStaticProps = async () => {
+  // Call an external API endpoint to get communities
+
+  const query = `{
+    get {
+      title
+      url
+      image
+      members
+    } 
+  }`;
+
+  const communities = await request(query);
+
+  // By returning { communities: communities }, the Home component
+  // will receive `communities` as a prop at build time
+  return {
+    props: {
+      communities
+    }
+  };
 };
 
 export default Home;
