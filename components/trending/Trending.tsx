@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { HomeProps } from '../../src/types';
 import Button from '../button/Button';
 import Card from '../card/Card';
 import {
@@ -11,18 +12,7 @@ import {
   Members
 } from './Trending.styles';
 
-interface Community {
-  title: string;
-  url: string;
-  members: number;
-  image: string;
-}
-
-interface TrendingProps {
-  communities: Community[];
-}
-
-const Trending = ({ communities }: TrendingProps): JSX.Element => (
+const Trending = ({ communities }: HomeProps): JSX.Element => (
   <Card title="Trending Communities">
     {communities.map(({ title, url, members, image }) => (
       <Community key={title}>
