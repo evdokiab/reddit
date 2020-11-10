@@ -2,22 +2,22 @@ import { useState } from 'react';
 
 import Button from '../components/button/Button';
 import Card from '../components/card/Card';
+import { Navigation } from '../components/navigation/Navigation.styles';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
-import { AppWrapper, GlobalStyle, Navigation } from '../styles/index.styles';
+import { AppWrapper, GlobalStyle } from '../styles/index.styles';
 
 const AddCommunity = (): JSX.Element => {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [members, setMembers] = useState('');
   const [image, setImage] = useState('');
+
   const isEnabled =
     title.length > 0 &&
     url.length > 0 &&
     members.length > 0 &&
     image.length > 0;
-
-  console.log('title:', title, 'Url:', url, 'mem:', members, 'image', image);
 
   const submitForm = async () => {
     const query = `
@@ -85,7 +85,7 @@ const AddCommunity = (): JSX.Element => {
               onChange={(event) => setImage(event.target.value)}
             />
           </Label>
-          <Button text="Add" action={submitForm} disabled={!isEnabled}></Button>
+          <Button text="Add" action={submitForm} disabled={!isEnabled} />
         </Form>
       </Card>
       <Navigation href="/">Home</Navigation>

@@ -15,6 +15,7 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
     <AppWrapper>
       <GlobalStyle />
       <Trending communities={communities} />
+      <Navigation href="/addCommunity">Add community</Navigation>
     </AppWrapper>
   );
 };
