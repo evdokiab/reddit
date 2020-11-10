@@ -1,39 +1,36 @@
+import { GetStaticProps } from 'next';
+
+import { Navigation } from '../components/navigation/Navigation.styles';
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
-import { AppWrapper, GlobalStyle, Navigation } from '../styles/index.styles';
+import { CommunityType } from '../src/types';
+import { AppWrapper, GlobalStyle } from '../styles/index.styles';
 
-interface Community {
-  title: string;
-  url: string;
-  members: number;
-  image: string;
+export interface HomeProps {
+  communities: CommunityType[];
 }
 
-interface HomeProps {
-  communities: Community[];
-}
 const Home = ({ communities }: HomeProps): JSX.Element => {
   return (
     <AppWrapper>
       <GlobalStyle />
       <Trending communities={communities} />
-      <Navigation href="/addCommunity">Add Community</Navigation>
     </AppWrapper>
   );
 };
 
 // This function gets called at build time
-export const getStaticProps = async (): Promise<unknown> => {
+export const getStaticProps: GetStaticProps = async () => {
   // Call an external API endpoint to get communities
 
   const query = `{
-        get {
-          title
-          url
-          image
-          members
-        }
-      }`;
+    get {
+      title
+      url
+      image
+      members
+    } 
+  }`;
 
   const data = await request(query);
 
