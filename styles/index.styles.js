@@ -54,7 +54,6 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
 			background-color:#dae0e6;
-			margin: 30px;
 			color: rgb(26, 26, 27);
 		}
 

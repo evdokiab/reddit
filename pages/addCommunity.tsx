@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Button from '../components/button/Button';
 import Card from '../components/card/Card';
+import { Header } from '../components/header/Header';
 import { Navigation } from '../components/navigation/Navigation.styles';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
@@ -31,22 +32,30 @@ const AddCommunity = (): JSX.Element => {
       }
     `;
 
-    const response = await request(query);
+    try {
+      const response = await request(query);
 
-    //Function run after 10sec
-    setTimeout(() => {
-      alert(`Success!The ${title} community added!`);
-      //clear form
-      Array.from(document.querySelectorAll('input')).forEach(
-        (input) => (input.value = '')
-      );
-    }, 10000);
+      if (response.errors) {
+        alert(response.errors);
+      } else {
+        // function run after 10sec
+        setTimeout(() => {
+          alert(`Success!The ${title} community added!`);
+          // clear form
+          setTitle('');
+          setUrl('');
+          setMembers('');
+          setImage('');
+        }, 10000);
+      }
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
     <AppWrapper>
-      <GlobalStyle />
-      <h1>WELCOME</h1>
+      <Header />
       <Card title="Add community form">
         <Form id="form">
           <Label>
