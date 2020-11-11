@@ -16,6 +16,6 @@ export const Wrapper = styled.button`
   cursor: pointer;
   :disabled {
     background-color: #7fbce9;
-    cursor: default;
+    cursor: not-allowed;
   }
 `;
