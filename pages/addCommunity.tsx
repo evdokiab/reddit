@@ -6,7 +6,7 @@ import { Header } from '../components/header/Header';
 import { Navigation } from '../components/navigation/Navigation.styles';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
-import { AppWrapper, GlobalStyle } from '../styles/index.styles';
+import { AppWrapper, Content } from '../styles/index.styles';
 
 const AddCommunity = (): JSX.Element => {
   const [title, setTitle] = useState('');
@@ -56,48 +56,50 @@ const AddCommunity = (): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-      <Card title="Add community form">
-        <Form id="form">
-          <Label>
-            Title:
-            <Input
-              type="text"
-              name="title"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            />
-          </Label>
-          <Label>
-            Url:
-            <Input
-              type="text"
-              name="url"
-              value={url}
-              onChange={(event) => setUrl(event.target.value)}
-            />
-          </Label>
-          <Label>
-            Members:
-            <Input
-              type="number"
-              name="members"
-              value={members}
-              onChange={(event) => setMembers(event.target.value)}
-            />
-          </Label>
-          <Label>
-            Image:
-            <Input
-              type="text"
-              name="image"
-              value={image}
-              onChange={(event) => setImage(event.target.value)}
-            />
-          </Label>
-          <Button text="Add" action={submitForm} disabled={!isEnabled} />
-        </Form>
-      </Card>
-      <Navigation href="/">Home</Navigation>
+      <Content>
+        <Card title="Add community form">
+          <Form id="form">
+            <Label>
+              Title:
+              <Input
+                type="text"
+                name="title"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+              />
+            </Label>
+            <Label>
+              Url:
+              <Input
+                type="text"
+                name="url"
+                value={url}
+                onChange={(event) => setUrl(event.target.value)}
+              />
+            </Label>
+            <Label>
+              Members:
+              <Input
+                type="number"
+                name="members"
+                value={members}
+                onChange={(event) => setMembers(event.target.value)}
+              />
+            </Label>
+            <Label>
+              Image:
+              <Input
+                type="text"
+                name="image"
+                value={image}
+                onChange={(event) => setImage(event.target.value)}
+              />
+            </Label>
+            <Button text="Add" action={submitForm} disabled={!isEnabled} />
+          </Form>
+        </Card>
+        <Navigation href="/">Home</Navigation>
+      </Content>
     </AppWrapper>
   );
 };

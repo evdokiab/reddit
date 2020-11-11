@@ -5,7 +5,7 @@ import { Navigation } from '../components/navigation/Navigation.styles';
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
 import { CommunityType } from '../modules/types';
-import { AppWrapper } from '../styles/index.styles';
+import { AppWrapper, Content } from '../styles/index.styles';
 
 export interface HomeProps {
   communities: CommunityType[];
@@ -15,8 +15,10 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-      <Trending communities={communities} />
-      <Navigation href="/addCommunity">Add community</Navigation>
+      <Content>
+        <Trending communities={communities} />
+        <Navigation href="/addCommunity">Add community</Navigation>
+      </Content>
     </AppWrapper>
   );
 };

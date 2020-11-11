@@ -65,5 +65,8 @@ const GlobalStyle = createGlobalStyle`
 const AppWrapper = styled.div`
   background-color: #dae0e6;
 `;
+const Content = styled.div`
+  margin: 30px;
+`;
 
-export { AppWrapper, GlobalStyle };
+export { AppWrapper, GlobalStyle, Content };
