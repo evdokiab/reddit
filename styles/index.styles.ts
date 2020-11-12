@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   
   /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -62,11 +62,9 @@ const GlobalStyle = createGlobalStyle`
 		}
 
 	`;
-const AppWrapper = styled.div`
+export const AppWrapper = styled.div`
   background-color: #dae0e6;
 `;
-const Content = styled.div`
+export const Content = styled.div`
   margin: 30px;
 `;
-
-export { AppWrapper, GlobalStyle, Content };

@@ -11,3 +11,9 @@ export const Input = styled.input`
 export const Label = styled.label`
   padding: 0px 0px 5px 0px;
 `;
+export const AppWrapper = styled.div`
+  background-color: #dae0e6;
+`;
+export const Content = styled.div`
+  margin: 30px;
+`;
