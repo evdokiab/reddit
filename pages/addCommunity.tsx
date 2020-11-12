@@ -4,15 +4,18 @@ import Button from '../components/button/Button';
 import Card from '../components/card/Card';
 import { Header } from '../components/header/Header';
 import { Navigation } from '../components/navigation/Navigation.styles';
+import { Toast } from '../components/toast/Toast';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
-import { AppWrapper, Content } from '../styles/index.styles';
+import { AppWrapper, Content } from '../styles/AddCommunity.styles';
 
 const AddCommunity = (): JSX.Element => {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [members, setMembers] = useState('');
   const [image, setImage] = useState('');
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastType, setToastType] = useState('failed');
 
   const isEnabled =
     title.length > 0 &&
@@ -36,26 +39,41 @@ const AddCommunity = (): JSX.Element => {
       const response = await request(query);
 
       if (response.errors) {
-        alert(response.errors);
+        setToastType('failed');
+        setToastMessage(response.errors);
       } else {
+        // clear form
+        setTitle('');
+        setUrl('');
+        setMembers('');
+        setImage('');
+
+        // set success message
+        setToastType('success');
+        setToastMessage(`Success! The ${title} community added!`);
+
         // function run after 10sec
         setTimeout(() => {
-          alert(`Success!The ${title} community added!`);
-          // clear form
-          setTitle('');
-          setUrl('');
-          setMembers('');
-          setImage('');
+          setToastType('failed');
+          setToastMessage('');
         }, 10000);
       }
     } catch (error) {
-      alert(error);
+      setToastType(error);
+      setToastType('failed');
+    }
+  };
+
+  const toastVisibled = () => {
+    if (toastMessage !== '') {
+      return <Toast text={toastMessage} type={toastType} />;
     }
   };
 
   return (
     <AppWrapper>
       <Header />
+
       <Content>
         <Card title="Add community form">
           <Form id="form">
@@ -99,6 +117,7 @@ const AddCommunity = (): JSX.Element => {
           </Form>
         </Card>
         <Navigation href="/">Home</Navigation>
+        {toastVisibled()}
       </Content>
     </AppWrapper>
   );
