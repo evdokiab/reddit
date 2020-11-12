@@ -1,9 +1,11 @@
 import { GetStaticProps } from 'next';
 
+import { Header } from '../components/header/Header';
+import { Navigation } from '../components/navigation/Navigation.styles';
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
-import { CommunityType } from '../src/types';
-import { AppWrapper, GlobalStyle } from '../styles/index.styles';
+import { CommunityType } from '../modules/types';
+import { AppWrapper, Content } from '../styles/index.styles';
 
 export interface HomeProps {
   communities: CommunityType[];
@@ -12,15 +14,18 @@ export interface HomeProps {
 const Home = ({ communities }: HomeProps): JSX.Element => {
   return (
     <AppWrapper>
-      <GlobalStyle />
-      <Trending communities={communities} />
+      <Header />
+      <Content>
+        <Trending communities={communities} />
+        <Navigation href="/addCommunity">Add community</Navigation>
+      </Content>
     </AppWrapper>
   );
 };
 
-// This function gets called at build time
+// this function gets called at build time
 export const getStaticProps: GetStaticProps = async () => {
-  // Call an external API endpoint to get communities
+  // call an external API endpoint to get communities
 
   const query = `{
     get {
@@ -31,13 +36,13 @@ export const getStaticProps: GetStaticProps = async () => {
     } 
   }`;
 
-  const communities = await request(query);
+  const response = await request(query);
 
-  // By returning { communities: communities }, the Home component
+  // by returning { communities: communities }, the Home component
   // will receive `communities` as a prop at build time
   return {
     props: {
-      communities
+      communities: response.data.get
     }
   };
 };

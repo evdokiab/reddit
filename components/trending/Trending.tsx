@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CommunityType } from '../../src/types';
+import { CommunityType } from '../../modules/types';
 import Button from '../button/Button';
 import Card from '../card/Card';
 import {
