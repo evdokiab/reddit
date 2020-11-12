@@ -6,7 +6,5 @@ interface ToastProps {
 }
 
 export const Toast = ({ type, text }: ToastProps): JSX.Element => (
-  <Wrapper type={type} text={text}>
-    {text}
-  </Wrapper>
+  <Wrapper type={type}>{text}</Wrapper>
 );
