@@ -1,4 +1,5 @@
-const request = async (query: string): Promise<T> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const request = async (query: string): Promise<any> => {
   try {
     const spreadsheetId = '1HbGGv7ihEW7uHkU4znlLL8FwJPBb-wQ3CFZlYfUtbDk';
     const response = await fetch(
@@ -15,7 +16,7 @@ const request = async (query: string): Promise<T> => {
       }
     );
     const responseJSON = await response.json();
-    return responseJSON.data;
+    return responseJSON;
   } catch (error) {
     alert('Error, try again!');
   }

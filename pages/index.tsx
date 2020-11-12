@@ -36,13 +36,13 @@ export const getStaticProps: GetStaticProps = async () => {
     } 
   }`;
 
-  const data = await request(query);
+  const response = await request(query);
 
   // by returning { communities: communities }, the Home component
   // will receive `communities` as a prop at build time
   return {
     props: {
-      communities: data.get
+      communities: response.data.get
     }
   };
 };

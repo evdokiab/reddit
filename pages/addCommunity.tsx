@@ -34,13 +34,11 @@ const AddCommunity = (): JSX.Element => {
         }
       }
     `;
-
     try {
       const response = await request(query);
-
       if (response.errors) {
         setToastType('failed');
-        setToastMessage(response.errors);
+        setToastMessage(response.errors[0].message);
       } else {
         // clear form
         setTitle('');
@@ -51,23 +49,16 @@ const AddCommunity = (): JSX.Element => {
         // set success message
         setToastType('success');
         setToastMessage(`Success! The ${title} community added!`);
-
-        // function run after 10sec
-        setTimeout(() => {
-          setToastType('failed');
-          setToastMessage('');
-        }, 10000);
       }
     } catch (error) {
-      setToastType(error);
       setToastType('failed');
+      setToastMessage(error.message);
     }
-  };
 
-  const toastVisibled = () => {
-    if (toastMessage !== '') {
-      return <Toast text={toastMessage} type={toastType} />;
-    }
+    // function run after 10sec
+    setTimeout(() => {
+      setToastMessage('');
+    }, 10000);
   };
 
   return (
@@ -117,7 +108,7 @@ const AddCommunity = (): JSX.Element => {
           </Form>
         </Card>
         <Navigation href="/">Home</Navigation>
-        {toastVisibled()}
+        {toastMessage && <Toast text={toastMessage} type={toastType} />}
       </Content>
     </AppWrapper>
   );
