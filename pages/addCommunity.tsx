@@ -103,7 +103,7 @@ const AddCommunity = (): JSX.Element => {
       setErrorImage('The image is required');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
-    } else if (image.indexOf('http') !== 0) {
+    } else if (!image.startsWith('http')) {
       setErrorImage('The url should starting with http');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
@@ -128,7 +128,7 @@ const AddCommunity = (): JSX.Element => {
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
               />
-              <ValidationError> {errorTitle} </ValidationError>
+              <ValidationError>{errorTitle}</ValidationError>
             </Label>
             <Label>
               Url:
@@ -138,7 +138,7 @@ const AddCommunity = (): JSX.Element => {
                 value={url}
                 onChange={(event) => setUrl(event.target.value)}
               />
-              <ValidationError> {errorUrl} </ValidationError>
+              <ValidationError>{errorUrl}</ValidationError>
             </Label>
             <Label>
               Members:
@@ -148,7 +148,7 @@ const AddCommunity = (): JSX.Element => {
                 value={members}
                 onChange={(event) => setMembers(event.target.value)}
               />
-              <ValidationError> {errorMembers} </ValidationError>
+              <ValidationError>{errorMembers}</ValidationError>
             </Label>
             <Label>
               Image:
@@ -158,7 +158,7 @@ const AddCommunity = (): JSX.Element => {
                 value={image}
                 onChange={(event) => setImage(event.target.value)}
               />
-              <ValidationError> {errorImage} </ValidationError>
+              <ValidationError>{errorImage}</ValidationError>
             </Label>
             <Button text="Add" action={submitForm} disabled={disabled} />
             {(errorTitle || errorUrl || errorMembers || errorImage) && (
