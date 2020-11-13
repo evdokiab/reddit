@@ -94,6 +94,9 @@ const AddCommunity = (): JSX.Element => {
       setErrorMembers('The number of members is required');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
+    } else if (!/^[0-9]+$/.test(members)) {
+      setErrorMembers('Only positive numbers');
+      setDisabled(true);
     } else {
       setErrorMembers('');
       setDisabled(false);
