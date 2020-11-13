@@ -80,10 +80,6 @@ const AddCommunity = (): JSX.Element => {
       setErrorUrl('The url is required');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
-    } else if (url.indexOf('http') !== 0) {
-      setErrorUrl('The url should starting with http');
-      setErrorMessage('An error exist try again!');
-      setDisabled(true);
     } else {
       setErrorUrl('');
       setDisabled(false);
