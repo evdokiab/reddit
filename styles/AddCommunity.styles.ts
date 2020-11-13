@@ -17,3 +17,8 @@ export const AppWrapper = styled.div`
 export const Content = styled.div`
   margin: 30px;
 `;
+
+export const ValidationError = styled.div`
+  color: red;
+  font-size: 12px;
+`;
