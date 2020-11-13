@@ -7,7 +7,11 @@ import { Navigation } from '../components/navigation/Navigation.styles';
 import { Toast } from '../components/toast/Toast';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
-import { AppWrapper, Content } from '../styles/AddCommunity.styles';
+import {
+  AppWrapper,
+  Content,
+  ValidationError
+} from '../styles/AddCommunity.styles';
 
 const AddCommunity = (): JSX.Element => {
   const [title, setTitle] = useState('');
@@ -16,12 +20,12 @@ const AddCommunity = (): JSX.Element => {
   const [image, setImage] = useState('');
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('failed');
-
-  const isEnabled =
-    title.length > 0 &&
-    url.length > 0 &&
-    members.length > 0 &&
-    image.length > 0;
+  const [disabled, setDisabled] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [errorTitle, setErrorTitle] = useState('');
+  const [errorUrl, setErrorUrl] = useState('');
+  const [errorMembers, setErrorMembers] = useState('');
+  const [errorImage, setErrorImage] = useState('');
 
   const submitForm = async () => {
     const query = `
@@ -60,6 +64,55 @@ const AddCommunity = (): JSX.Element => {
       setToastMessage('');
     }, 10000);
   };
+  const validateForm = () => {
+    // validate Title  field
+    if (!title && setToastMessage) {
+      setErrorTitle('The title is required');
+      setErrorMessage('An error exist try again!');
+      setDisabled(true);
+    } else {
+      setErrorTitle('');
+      setDisabled(false);
+    }
+
+    // validate Url field
+    if (!url) {
+      setErrorUrl('The url is required');
+      setErrorMessage('An error exist try again!');
+      setDisabled(true);
+    } else if (url.indexOf('http') !== 0) {
+      setErrorUrl('The url should starting with http');
+      setErrorMessage('An error exist try again!');
+      setDisabled(true);
+    } else {
+      setErrorUrl('');
+      setDisabled(false);
+    }
+
+    // validate members field
+    if (!members) {
+      setErrorMembers('The number of members is required');
+      setErrorMessage('An error exist try again!');
+      setDisabled(true);
+    } else {
+      setErrorMembers('');
+      setDisabled(false);
+    }
+
+    // validate image field
+    if (!image) {
+      setErrorImage('The image is required');
+      setErrorMessage('An error exist try again!');
+      setDisabled(true);
+    } else if (image.indexOf('http') !== 0) {
+      setErrorImage('The url should starting with http');
+      setErrorMessage('An error exist try again!');
+      setDisabled(true);
+    } else {
+      setErrorImage('');
+      setDisabled(false);
+    }
+  };
 
   return (
     <AppWrapper>
@@ -67,7 +120,7 @@ const AddCommunity = (): JSX.Element => {
 
       <Content>
         <Card title="Add community form">
-          <Form id="form">
+          <Form id="form" onBlur={validateForm}>
             <Label>
               Title:
               <Input
@@ -76,6 +129,7 @@ const AddCommunity = (): JSX.Element => {
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
               />
+              <ValidationError> {errorTitle} </ValidationError>
             </Label>
             <Label>
               Url:
@@ -85,6 +139,7 @@ const AddCommunity = (): JSX.Element => {
                 value={url}
                 onChange={(event) => setUrl(event.target.value)}
               />
+              <ValidationError> {errorUrl} </ValidationError>
             </Label>
             <Label>
               Members:
@@ -94,6 +149,7 @@ const AddCommunity = (): JSX.Element => {
                 value={members}
                 onChange={(event) => setMembers(event.target.value)}
               />
+              <ValidationError> {errorMembers} </ValidationError>
             </Label>
             <Label>
               Image:
@@ -103,8 +159,12 @@ const AddCommunity = (): JSX.Element => {
                 value={image}
                 onChange={(event) => setImage(event.target.value)}
               />
+              <ValidationError> {errorImage} </ValidationError>
             </Label>
-            <Button text="Add" action={submitForm} disabled={!isEnabled} />
+            <Button text="Add" action={submitForm} disabled={disabled} />
+            {(errorTitle || errorUrl || errorMembers || errorImage) && (
+              <ValidationError>{errorMessage}</ValidationError>
+            )}
           </Form>
         </Card>
         <Navigation href="/">Home</Navigation>
