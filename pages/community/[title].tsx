@@ -68,14 +68,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // params contains the community `title`.
   // if the route is like /community/test, then params.title is test
-  // const query = `{
-  //   get(query: {title:"${params.title}"}) {
-  //     title
-  //     url
-  //     image
-  //     members
-  //   }
-  // }`;
+
   const query = `{
     get(query: {title: "${params.title}"}) {
       title
@@ -88,7 +81,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const response = await request(query);
   const community = await response.data.get;
-  console.log('FIRE', community);
+
   // pass community data to the page via props
   return { props: { community } };
 };
