@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 import Card from '../../components/card/Card';
 import { Header } from '../../components/header/Header';
@@ -41,31 +41,8 @@ const SingleCommunity = ({ community }: CommunityProps): JSX.Element => {
   );
 };
 
-// this function gets called at build time
-export const getStaticPaths: GetStaticPaths = async () => {
-  // call an external API endpoint to get communities
-  const query = `{
-    get {
-      title
-      url
-      image
-      members
-    } 
-  }`;
-
-  const response = await request(query);
-  const communities = await response.data.get;
-
-  // get the paths we want to pre-render based on communities
-  const paths = communities.map((community) => `/community/${community.title}`);
-
-  // we'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false };
-};
-
-// this also gets called at build time
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+// this function gets called on every request
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   // params contains the community `title`.
   // if the route is like /community/test, then params.title is test
 
