@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 import { Header } from '../components/header/Header';
 import { Navigation } from '../components/navigation/Navigation.styles';
@@ -23,8 +23,8 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
   );
 };
 
-// this function gets called at build time
-export const getStaticProps: GetStaticProps = async () => {
+// this function gets called on every request
+export const getServerSideProps: GetServerSideProps = async () => {
   // call an external API endpoint to get communities
 
   const query = `{
