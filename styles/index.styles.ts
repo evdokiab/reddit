@@ -67,4 +67,5 @@ export const AppWrapper = styled.div`
 `;
 export const Content = styled.div`
   margin: 30px;
+  display: flex;
 `;
