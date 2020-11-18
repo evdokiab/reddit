@@ -75,10 +75,21 @@ export const Content = styled.div`
 
   background: #dae0e6;
 
-  ${media.tablet`
-    padding: 50px 15px;
+  ${media.bigDesktop} {
+    padding: 120px 20px;
     margin: none;
-  `};
+  }
 
-  ${media.phone`padding: 20px 10px;`};
+  ${media.desktop} {
+    padding: 80px 20px;
+    margin: none;
+  }
+
+  ${media.tablet} {
+    padding: 50px 15px;
+  }
+
+  ${media.phone} {
+    padding: 20px 10px;
+  } ;
 `;

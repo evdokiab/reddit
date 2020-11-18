@@ -1,21 +1,12 @@
-import { css } from 'styled-components';
+const customMediaQuery = (maxWidth: number): string =>
+  `@media (max-width: ${maxWidth}px)`;
 
-const sizes = {
-  bigDesktop: 1200,
-  desktop: 992,
-  tablet: 768,
-  phone: 576
+const media = {
+  custom: customMediaQuery,
+  bigDesktop: customMediaQuery(1200),
+  desktop: customMediaQuery(922),
+  tablet: customMediaQuery(768),
+  phone: customMediaQuery(576)
 };
 
-// iterate through the sizes and create a media template
-const media: unknown = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (max-width: ${sizes[label] / 16}em) {
-      ${css(...args)}
-    }
-  `;
-
-  return acc;
-}, {});
-
-export default media as unknown;
+export default media;
