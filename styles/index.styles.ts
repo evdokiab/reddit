@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
+import media from '../modules/media';
+
 export const GlobalStyle = createGlobalStyle`
   
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -68,4 +70,15 @@ export const AppWrapper = styled.div`
 export const Content = styled.div`
   margin: 30px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  background: #dae0e6;
+
+  ${media.tablet`
+    padding: 50px 15px;
+    margin: none;
+  `};
+
+  ${media.phone`padding: 20px 10px;`};
 `;

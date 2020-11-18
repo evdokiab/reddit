@@ -18,8 +18,10 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
       <Header />
       <Content>
         <Image src="/logo.png" alt="Logo" width={500} height={500} />
-        <Trending communities={communities} />
-        <Navigation href="/addCommunity">Add community</Navigation>
+        <div>
+          <Trending communities={communities} />
+          <Navigation href="/addCommunity">Add community</Navigation>
+        </div>
       </Content>
     </AppWrapper>
   );
