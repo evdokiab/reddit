@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
+import media from '../modules/media';
+
 export const GlobalStyle = createGlobalStyle`
   
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -68,4 +70,26 @@ export const AppWrapper = styled.div`
 export const Content = styled.div`
   margin: 30px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  background: #dae0e6;
+
+  ${media.bigDesktop} {
+    padding: 120px 20px;
+    margin: none;
+  }
+
+  ${media.desktop} {
+    padding: 80px 20px;
+    margin: none;
+  }
+
+  ${media.tablet} {
+    padding: 50px 15px;
+  }
+
+  ${media.phone} {
+    padding: 20px 10px;
+  } ;
 `;
