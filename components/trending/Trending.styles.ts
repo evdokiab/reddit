@@ -22,7 +22,7 @@ export const Info = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   font-size: 12px;
-  line-height: 6px;
+  line-height: 8px;
   padding-left: 7px;
 `;
 

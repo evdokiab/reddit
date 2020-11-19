@@ -66,11 +66,13 @@ export const GlobalStyle = createGlobalStyle`
 	`;
 export const AppWrapper = styled.div`
   background-color: #dae0e6;
+  ${media.tablet} {
+    flex-direction: column;
+  }
 `;
 export const Content = styled.div`
   margin: 30px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
 
   background: #dae0e6;
@@ -87,9 +89,22 @@ export const Content = styled.div`
 
   ${media.tablet} {
     padding: 50px 15px;
+    flex-direction: column;
   }
 
   ${media.phone} {
     padding: 20px 10px;
+    flex-direction: column;
+  } ;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-space-evenly;
+
+  ${media.phone} {
+    padding: 20px 10px;
+    flex-direction: column;
   } ;
 `;
