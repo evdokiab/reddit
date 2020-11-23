@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import media from '../modules/media';
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -15,7 +17,10 @@ export const AppWrapper = styled.div`
   background-color: #dae0e6;
 `;
 export const Content = styled.div`
-  margin: 30px;
+  margin: 60px 240px;
+  ${media.tablet} {
+    margin: 60px;
+  }
 `;
 
 export const ValidationError = styled.div`

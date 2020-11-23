@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Button from '../components/button/Button';
 import Card from '../components/card/Card';
 import { Header } from '../components/header/Header';
-import { Navigation } from '../components/navigation/Navigation.styles';
 import { Toast } from '../components/toast/Toast';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
@@ -166,7 +165,6 @@ const AddCommunity = (): JSX.Element => {
             )}
           </Form>
         </Card>
-        <Navigation href="/">Home</Navigation>
         {toastMessage && <Toast text={toastMessage} type={toastType} />}
       </Content>
     </AppWrapper>

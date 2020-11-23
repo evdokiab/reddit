@@ -2,7 +2,6 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
 import { Header } from '../components/header/Header';
-import { Navigation } from '../components/navigation/Navigation.styles';
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
 import { CommunityType } from '../modules/types';
@@ -18,10 +17,7 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
       <Header />
       <Content>
         <Image src="/logo.png" alt="Logo" width={500} height={500} />
-        <div>
-          <Trending communities={communities} />
-          <Navigation href="/addCommunity">Add community</Navigation>
-        </div>
+        <Trending communities={communities} />
       </Content>
     </AppWrapper>
   );

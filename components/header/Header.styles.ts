@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const HeadWrapper = styled.div`
   background-color: white;
   height: 48px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 `;
 
 export const HeadTitle = styled.div`

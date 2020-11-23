@@ -77,16 +77,17 @@ export const Content = styled.div`
 
   ${media.bigDesktop} {
     padding: 120px 20px;
-    margin: none;
+    margin: 60px 240px;
   }
 
   ${media.desktop} {
-    padding: 80px 20px;
-    margin: none;
+    padding: 50px 20px;
+    margin: 60px 184px;
   }
 
   ${media.tablet} {
     padding: 50px 15px;
+    margin: 60px 0px;
   }
 
   ${media.phone} {
