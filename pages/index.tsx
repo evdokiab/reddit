@@ -2,7 +2,6 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
 import { Header } from '../components/header/Header';
-import { Navigation } from '../components/navigation/Navigation.styles';
 import RedditImage from '../components/redditImage/RedditImage';
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
@@ -20,10 +19,7 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
       <Content>
         <Wrapper>
           <Image src="/logo.png" alt="Logo" width={500} height={500} />
-          <div>
-            <Trending communities={communities} />
-            <Navigation href="/addCommunity">Add community</Navigation>
-          </div>
+          <Trending communities={communities} />
         </Wrapper>
         <RedditImage
           src="/lionKing.jpg"
@@ -46,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       url
       image
       members
-    } 
+    }
   }`;
 
   const response = await request(query);
