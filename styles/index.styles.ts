@@ -64,12 +64,14 @@ export const GlobalStyle = createGlobalStyle`
 		}
 
 	`;
+
 export const AppWrapper = styled.div`
   background-color: #dae0e6;
   ${media.tablet} {
     flex-direction: column;
   }
 `;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;

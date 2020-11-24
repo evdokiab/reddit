@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import media from '../../modules/media';
+
 export const Menu = styled.div`
   display: ${(props) => (!props.hide ? 'flex' : 'none')};
   flex-direction: column;
