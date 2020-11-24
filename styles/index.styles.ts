@@ -66,10 +66,12 @@ export const GlobalStyle = createGlobalStyle`
 	`;
 export const AppWrapper = styled.div`
   background-color: #dae0e6;
+  ${media.tablet} {
+    flex-direction: column;
+  }
 `;
 export const Content = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 0 20px;
 
@@ -81,5 +83,16 @@ export const Content = styled.div`
 
   ${media.phone} {
     padding: 0 10px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  ${media.phone} {
+    padding: 20px 10px;
+    flex-direction: column;
   }
 `;
