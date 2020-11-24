@@ -4,8 +4,8 @@ import { createGlobalStyle } from 'styled-components';
 import media from '../modules/media';
 
 export const GlobalStyle = createGlobalStyle`
-  
-  /* http://meyerweb.com/eric/tools/css/reset/ 
+
+  /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 	*/
@@ -19,8 +19,8 @@ export const GlobalStyle = createGlobalStyle`
 	dl, dt, dd, ol, ul, li,
 	fieldset, form, label, legend,
 	table, caption, tbody, tfoot, thead, tr, th, td,
-	article, aside, canvas, details, embed, 
-	figure, figcaption, footer, header, hgroup, 
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
 	menu, nav, output, ruby, section, summary,
 	time, mark, audio, video {
 		margin: 0;
@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
 		vertical-align: baseline;
 	}
 	/* HTML5 display-role reset for older browsers */
-	article, aside, details, figcaption, figure, 
+	article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
@@ -59,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
 			color: rgb(26, 26, 27);
 		}
 
-		*, body { 
+		*, body {
 			font-family: "IBM Plex Sans", sans-serif;
 		}
 
@@ -68,29 +68,18 @@ export const AppWrapper = styled.div`
   background-color: #dae0e6;
 `;
 export const Content = styled.div`
-  margin: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 0 20px;
 
   background: #dae0e6;
 
-  ${media.bigDesktop} {
-    padding: 120px 20px;
-    margin: 60px 240px;
-  }
-
-  ${media.desktop} {
-    padding: 50px 20px;
-    margin: 60px 184px;
-  }
-
   ${media.tablet} {
-    padding: 50px 15px;
-    margin: 60px 0px;
+    padding: 0px 15px;
   }
 
   ${media.phone} {
-    padding: 20px 10px;
-  } ;
+    padding: 0 10px;
+  }
 `;

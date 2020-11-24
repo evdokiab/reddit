@@ -5,6 +5,7 @@ export const Community = styled.div`
   justify-content: space-between;
   background: white;
   padding: 0px 8px 20px 12px;
+  max-width: 300px;
 `;
 
 export const Details = styled.div`

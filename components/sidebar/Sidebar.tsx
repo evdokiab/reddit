@@ -1,31 +1,43 @@
-import Hamburger from 'hamburger-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Menu, MenuItem1, MenuItem2, Wrapper } from './Sidebar.styles';
+import { Menu, MenuItem } from './Sidebar.styles';
 
-export const Sidebar = (): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [url, setUrl] = useState('');
+const links = [
+  {
+    title: 'Home',
+    url: '/'
+  },
+  {
+    title: 'Add Community',
+    url: '/addCommunity'
+  }
+];
 
-  const handleHamburgerClick = () => {
-    setIsMenuOpen(!isMenuOpen);
-    setUrl(window.location.href.split('/')[3]);
-  };
+export const Sidebar = ({
+  isMenuOpen
+}: {
+  isMenuOpen: boolean;
+}): JSX.Element => {
+  const [activeUrl, setActiveUrl] = useState('');
+
+  useEffect(() => {
+    setActiveUrl('/' + window.location.href.split('/')[3]);
+  });
 
   return (
-    <Wrapper hide={!isMenuOpen}>
-      <Hamburger onToggle={handleHamburgerClick} size={25} />
-
-      <Menu hide={!isMenuOpen}>
-        <MenuItem1 url={url} onClick={() => setIsMenuOpen(false)}>
-          <Link href="/">Home</Link>
-        </MenuItem1>
-
-        <MenuItem2 url={url} onClick={() => setIsMenuOpen(false)}>
-          <Link href="/addCommunity">Add community</Link>
-        </MenuItem2>
-      </Menu>
-    </Wrapper>
+    <Menu hide={!isMenuOpen}>
+      {links.map((link) => (
+        <Link href={link.url} key={link.url}>
+          <MenuItem
+            active={link.url === activeUrl}
+            key={link.url}
+            suppressHydrationWarning
+          >
+            {link.title}
+          </MenuItem>
+        </Link>
+      ))}
+    </Menu>
   );
 };

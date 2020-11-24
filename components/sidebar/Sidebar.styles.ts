@@ -1,85 +1,46 @@
 import styled from 'styled-components';
 
 import media from '../../modules/media';
-export const Menu = styled.ul`
-  ${(props) => props.hide && 'display: none;'}
-`;
-
-export const MenuItem1 = styled.li`
-  font-size: 16px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 2px solid #42535b;
-  background-color: #36474f;
-
-  a {
-    color: white;
-    &:link {
-      text-decoration: none;
-    }
-  }
-
-  ${(props) => props.url === '' && 'border-left: 3px solid #add8e6;'}
-
-  ${media.tablet} {
-    text-align: center;
-    a {
-      padding: 20px;
-      display: block;
-    }
-  }
-`;
-
-export const MenuItem2 = styled.li`
-  font-size: 16px;
-  padding: 20px;
-  display: flex;
+export const Menu = styled.div`
+  display: ${(props) => (!props.hide ? 'flex' : 'none')};
   flex-direction: column;
 
-  border-bottom: 2px solid #42535b;
-  background-color: #36474f;
-
-  ${(props) =>
-    props.url === 'addCommunity' && 'border-left: 3px solid #add8e6;'}
-
-  ${media.tablet} {
-    text-align: center;
-    a {
-      padding: 20px;
-      display: block;
-    }
-  }
-  a {
-    color: white;
-    &:link {
-      text-decoration: none;
-    }
-  }
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  list-style-type: none;
   height: 100%;
+  z-index: 2;
+  background-color: #36474f;
 
   position: fixed;
-  ${(props) => !props.hide && 'background-color: #36474f;'}
   flex-direction: column;
-  width: 20%;
-  top: 0;
+  width: 200px;
+  top: 48px;
   left: 0;
-  margin: 0px 800px 0px 0px;
   padding: 0;
 
   ${media.tablet} {
-    flex-direction: row;
-
+    flex-direction: column;
     width: 100%;
-    height: 30%;
-    top: 0;
-    left: 0px;
-    margin: 0px;
-    padding: 0;
+    height: auto;
   }
 `;
+
+export const MenuItem = styled.div`
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  border-bottom: 2px solid #42535b;
+  ${(props) => props.active && 'border-left: 3px solid #add8e6;'}
+
+  &:hover {
+    background-color: gray;
+  }
+`;
+
+export const ActiveBorder = styled.div`
+  width: 3px;
+  height: 56px;
+  background-color: #add8e6;
+`;
+
+export const Wrapper = styled.div``;

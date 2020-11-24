@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       url
       image
       members
-    } 
+    }
   }`;
 
   const response = await request(query);
