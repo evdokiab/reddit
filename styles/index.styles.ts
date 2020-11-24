@@ -72,6 +72,7 @@ export const AppWrapper = styled.div`
 `;
 export const Content = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   padding: 0 20px;
 
@@ -88,7 +89,6 @@ export const Content = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 
   ${media.phone} {
