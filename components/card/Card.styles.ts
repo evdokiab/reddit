@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 3px;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
 `;
 
 export const Title = styled.h1`

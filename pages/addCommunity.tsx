@@ -9,6 +9,7 @@ import { Form, Input, Label } from '../styles/AddCommunity.styles';
 import {
   AppWrapper,
   Content,
+  Div,
   ValidationError
 } from '../styles/AddCommunity.styles';
 
@@ -64,6 +65,9 @@ const AddCommunity = (): JSX.Element => {
     }, 10000);
   };
   const validateForm = () => {
+    // if (title.length > 6) {
+    //   title.
+    // }
     // validate Title  field
     if (!title && setToastMessage) {
       setErrorTitle('The title is required');
@@ -90,7 +94,7 @@ const AddCommunity = (): JSX.Element => {
       setErrorMessage('An error exist try again!');
       setDisabled(true);
     } else if (!/^[0-9]+$/.test(members)) {
-      setErrorMembers('Only positive numbers');
+      setErrorMembers('Only positive numbers allowed');
       setDisabled(true);
     } else {
       setErrorMembers('');
@@ -115,9 +119,9 @@ const AddCommunity = (): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-
+      <Div />
       <Content>
-        <Card title="Add community form">
+        <Card title="Add community form" width={400} height={400}>
           <Form id="form" onBlur={validateForm}>
             <Label>
               Title:
@@ -125,7 +129,10 @@ const AddCommunity = (): JSX.Element => {
                 type="text"
                 name="title"
                 value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => {
+                  setTitle(event.target.value);
+                }}
+                maxLength={20}
               />
               <ValidationError>{errorTitle}</ValidationError>
             </Label>
@@ -142,10 +149,11 @@ const AddCommunity = (): JSX.Element => {
             <Label>
               Members:
               <Input
-                type="number"
+                type="text"
                 name="members"
                 value={members}
                 onChange={(event) => setMembers(event.target.value)}
+                maxLength={9}
               />
               <ValidationError>{errorMembers}</ValidationError>
             </Label>

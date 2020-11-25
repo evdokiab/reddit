@@ -16,7 +16,7 @@ const RedditImage = ({
   title
 }: RedditImageProps): JSX.Element => {
   return (
-    <Card title={title}>
+    <Card title={title} width={width} height={height}>
       <Image src={src} width={width} height={height} />
     </Card>
   );

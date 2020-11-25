@@ -1,29 +1,31 @@
 import styled from 'styled-components';
 
-import media from '../modules/media';
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 0px 40px 20px 12px;
+  align-items: center;
 `;
 export const Input = styled.input`
   display: flex;
+  border: 1px solid;
 `;
 export const Label = styled.label`
-  padding: 0px 0px 5px 0px;
+  margin: 4px;
 `;
 export const AppWrapper = styled.div`
   background-color: #dae0e6;
 `;
+
 export const Content = styled.div`
-  margin: 60px 240px;
-  ${media.tablet} {
-    margin: 60px;
-  }
+  display: flex;
+  justify-content: center;
 `;
 
 export const ValidationError = styled.div`
   color: red;
   font-size: 12px;
+`;
+
+export const Div = styled.div`
+  height: 54px;
 `;
