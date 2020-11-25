@@ -24,7 +24,6 @@ export const Info = styled.div`
   justify-content: space-evenly;
   font-size: 12px;
   line-height: 8px;
-  /* padding-left: 7px; */
   margin: 0px 7px;
 `;
 
