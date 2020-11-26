@@ -12,7 +12,7 @@ import {
 } from '../../components/trending/Trending.styles';
 import request from '../../modules/request';
 import { CommunityType } from '../../modules/types';
-import { AppWrapper, Content, Div } from '../../styles/AddCommunity.styles';
+import { AppWrapper, Content } from '../../styles/[title].styles';
 
 export interface CommunityProps {
   community: CommunityType[];
@@ -22,7 +22,6 @@ const SingleCommunity = ({ community }: CommunityProps): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-      <Div />
       <Content>
         <Card title="Community">
           {community.map(({ title, url, members, image }) => (

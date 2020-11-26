@@ -9,7 +9,6 @@ import { Form, Input, Label } from '../styles/AddCommunity.styles';
 import {
   AppWrapper,
   Content,
-  Div,
   ValidationError
 } from '../styles/AddCommunity.styles';
 
@@ -65,9 +64,6 @@ const AddCommunity = (): JSX.Element => {
     }, 10000);
   };
   const validateForm = () => {
-    // if (title.length > 6) {
-    //   title.
-    // }
     // validate Title  field
     if (!title && setToastMessage) {
       setErrorTitle('The title is required');
@@ -119,7 +115,6 @@ const AddCommunity = (): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-      <Div />
       <Content>
         <Card title="Add community form" width={400} height={400}>
           <Form id="form" onBlur={validateForm}>

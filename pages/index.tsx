@@ -6,7 +6,7 @@ import RedditImage from '../components/redditImage/RedditImage';
 import Trending from '../components/trending/Trending';
 import request from '../modules/request';
 import { CommunityType } from '../modules/types';
-import { AppWrapper, Content, Div, Wrapper } from '../styles/index.styles';
+import { AppWrapper, Content, Wrapper } from '../styles/index.styles';
 
 export interface HomeProps {
   communities: CommunityType[];
@@ -16,7 +16,6 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-      <Div />
       <Content>
         <Wrapper>
           <Image src="/logo.png" alt="Logo" width={500} height={500} />

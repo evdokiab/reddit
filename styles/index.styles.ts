@@ -75,13 +75,12 @@ export const AppWrapper = styled.div`
 export const Content = styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding: 0 20px;
+  padding-top: 65px;
 
   background: #dae0e6;
 
   ${media.tablet} {
     flex-wrap: wrap;
-    padding: 0px 15px;
   }
 
   ${media.phone} {
@@ -96,8 +95,4 @@ export const Wrapper = styled.div`
   ${media.phone} {
     flex-direction: column;
   }
-`;
-
-export const Div = styled.div`
-  height: 54px;
 `;

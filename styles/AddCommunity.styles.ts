@@ -14,18 +14,17 @@ export const Label = styled.label`
 `;
 export const AppWrapper = styled.div`
   background-color: #dae0e6;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Content = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 65px;
 `;
 
 export const ValidationError = styled.div`
   color: red;
   font-size: 12px;
-`;
-
-export const Div = styled.div`
-  height: 54px;
 `;
