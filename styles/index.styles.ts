@@ -74,27 +74,25 @@ export const AppWrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
-  padding: 0 20px;
+  padding-top: 65px;
 
   background: #dae0e6;
 
   ${media.tablet} {
-    padding: 0px 15px;
+    flex-wrap: wrap;
   }
 
   ${media.phone} {
-    padding: 0 10px;
+    align-items: center;
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   ${media.phone} {
-    padding: 20px 10px;
     flex-direction: column;
   }
 `;

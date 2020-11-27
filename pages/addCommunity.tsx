@@ -15,7 +15,7 @@ import {
 const AddCommunity = (): JSX.Element => {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
-  const [members, setMembers] = useState('');
+  const [members, setMembers] = useState(0);
   const [image, setImage] = useState('');
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('failed');
@@ -46,7 +46,7 @@ const AddCommunity = (): JSX.Element => {
         // clear form
         setTitle('');
         setUrl('');
-        setMembers('');
+        setMembers(0);
         setImage('');
 
         // set success message
@@ -89,8 +89,8 @@ const AddCommunity = (): JSX.Element => {
       setErrorMembers('The number of members is required');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
-    } else if (!/^[0-9]+$/.test(members)) {
-      setErrorMembers('Only positive numbers');
+    } else if (members > 1000000 || members < 0) {
+      setErrorMembers('Only positive numbers allowed in range 0-1000000');
       setDisabled(true);
     } else {
       setErrorMembers('');
@@ -115,9 +115,8 @@ const AddCommunity = (): JSX.Element => {
   return (
     <AppWrapper>
       <Header />
-
       <Content>
-        <Card title="Add community form">
+        <Card title="Add community form" width={400} height={400}>
           <Form id="form" onBlur={validateForm}>
             <Label>
               Title:
@@ -125,7 +124,10 @@ const AddCommunity = (): JSX.Element => {
                 type="text"
                 name="title"
                 value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => {
+                  setTitle(event.target.value);
+                }}
+                maxLength={20}
               />
               <ValidationError>{errorTitle}</ValidationError>
             </Label>
@@ -146,6 +148,8 @@ const AddCommunity = (): JSX.Element => {
                 name="members"
                 value={members}
                 onChange={(event) => setMembers(event.target.value)}
+                min="0"
+                max="1000000"
               />
               <ValidationError>{errorMembers}</ValidationError>
             </Label>

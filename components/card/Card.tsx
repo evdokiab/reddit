@@ -4,11 +4,13 @@ import { Title, Wrapper } from './Card.styles';
 
 interface CardProps {
   title: string;
+  width?: number;
+  height?: number;
   children: ReactNode;
 }
 
-const Card = ({ title, children }: CardProps): JSX.Element => (
-  <Wrapper>
+const Card = ({ title, width, height, children }: CardProps): JSX.Element => (
+  <Wrapper width={width} height={height}>
     <Title>{title}</Title>
     {children}
   </Wrapper>

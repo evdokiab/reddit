@@ -23,8 +23,8 @@ const Home = ({ communities }: HomeProps): JSX.Element => {
         </Wrapper>
         <RedditImage
           src="/lionKing.jpg"
-          width={700}
-          height={700}
+          width={500}
+          height={500}
           title="Lion is here!"
         />
       </Content>
