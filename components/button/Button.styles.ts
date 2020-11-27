@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
+import {
+  blue,
+  hoverBlue,
+  lightGray,
+  textGray,
+  white
+} from '../../modules/colors';
+
 export const Wrapper = styled.button`
-  color: white;
-  background-color: rgb(0, 121, 211);
+  color: ${white};
+  background-color: ${blue};
   :hover {
-    background-color: #7fbce9;
+    background-color: ${hoverBlue};
   }
   border-radius: 4px;
   font-size: 12px;
@@ -15,8 +23,8 @@ export const Wrapper = styled.button`
   text-align: center;
   cursor: pointer;
   :disabled {
-    background-color: #cccccc;
-    color: #666666;
+    background-color: ${lightGray};
+    color: ${textGray};
     cursor: not-allowed;
   }
 `;

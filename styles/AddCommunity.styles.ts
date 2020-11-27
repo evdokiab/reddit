@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { basic, red } from '../modules/colors';
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@ export const Label = styled.label`
   margin: 4px;
 `;
 export const AppWrapper = styled.div`
-  background-color: #dae0e6;
+  background-color: ${basic};
   display: flex;
   flex-direction: column;
 `;
@@ -26,6 +28,6 @@ export const Content = styled.div`
 `;
 
 export const ValidationError = styled.div`
-  color: red;
+  color: ${red};
   font-size: 12px;
 `;

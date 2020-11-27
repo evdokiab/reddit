@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+import { black } from '../../modules/colors';
+
 export const Navigation = styled.a`
   text-decoration: none;
-  color: rgb(26, 26, 27);
+  color: ${black};
   :hover {
     text-decoration: underline;
   }

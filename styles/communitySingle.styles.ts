@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
+import { basic } from '../modules/colors';
+
 export const AppWrapper = styled.div`
-  background-color: #dae0e6;
+  background-color: ${basic};
   display: flex;
   flex-direction: column;
 `;
