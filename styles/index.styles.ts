@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
+import { basic, black } from '../modules/colors';
 import media from '../modules/media';
 
 export const GlobalStyle = createGlobalStyle`
@@ -55,8 +56,8 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-			background-color:#dae0e6;
-			color: rgb(26, 26, 27);
+			background-color:${basic};
+			color: ${black};
 		}
 
 		*, body {
@@ -66,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
 	`;
 
 export const AppWrapper = styled.div`
-  background-color: #dae0e6;
+  background-color: ${basic};
   ${media.tablet} {
     flex-direction: column;
   }
@@ -77,7 +78,7 @@ export const Content = styled.div`
   justify-content: space-evenly;
   padding-top: 65px;
 
-  background: #dae0e6;
+  background: ${basic};
 
   ${media.tablet} {
     flex-wrap: wrap;

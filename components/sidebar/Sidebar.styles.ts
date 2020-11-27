@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
+import {
+  babyblue,
+  darkGray,
+  hoverSidebar,
+  lightGrayBorder,
+  white
+} from '../../modules/colors';
 import media from '../../modules/media';
-
 export const Menu = styled.div`
   display: ${(props) => (!props.hide ? 'flex' : 'none')};
   flex-direction: column;
 
   height: 100%;
   z-index: 2;
-  background-color: #36474f;
+  background-color: ${darkGray};
 
   position: fixed;
   flex-direction: column;
@@ -26,22 +32,22 @@ export const Menu = styled.div`
 
 export const MenuItem = styled.div`
   font-size: 16px;
-  color: white;
+  color: ${white};
   cursor: pointer;
   padding: 20px;
   display: flex;
-  border-bottom: 2px solid #42535b;
-  ${(props) => props.active && 'border-left: 3px solid #add8e6;'}
+  border-bottom: 2px solid ${lightGrayBorder};
+  ${(props) => props.active && `border-left: 3px solid ${babyblue};`}
 
   &:hover {
-    background-color: gray;
+    background-color: ${hoverSidebar};
   }
 `;
 
 export const ActiveBorder = styled.div`
   width: 3px;
   height: 56px;
-  background-color: #add8e6;
+  background-color: ${babyblue};
 `;
 
 export const Wrapper = styled.div``;
