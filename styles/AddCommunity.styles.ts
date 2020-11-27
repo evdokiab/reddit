@@ -6,7 +6,8 @@ export const Form = styled.form`
   align-items: center;
 `;
 export const Input = styled.input`
-  display: flex;
+  display: block;
+  width: 173px;
   border: 1px solid;
 `;
 export const Label = styled.label`

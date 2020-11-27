@@ -15,7 +15,7 @@ import {
 const AddCommunity = (): JSX.Element => {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
-  const [members, setMembers] = useState('');
+  const [members, setMembers] = useState(0);
   const [image, setImage] = useState('');
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('failed');
@@ -46,7 +46,7 @@ const AddCommunity = (): JSX.Element => {
         // clear form
         setTitle('');
         setUrl('');
-        setMembers('');
+        setMembers(0);
         setImage('');
 
         // set success message
@@ -89,8 +89,8 @@ const AddCommunity = (): JSX.Element => {
       setErrorMembers('The number of members is required');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
-    } else if (!/^[0-9]+$/.test(members)) {
-      setErrorMembers('Only positive numbers allowed');
+    } else if (members > 1000000 || members < 0) {
+      setErrorMembers('Only positive numbers allowed in range 0-1000000');
       setDisabled(true);
     } else {
       setErrorMembers('');
@@ -144,11 +144,12 @@ const AddCommunity = (): JSX.Element => {
             <Label>
               Members:
               <Input
-                type="text"
+                type="number"
                 name="members"
                 value={members}
                 onChange={(event) => setMembers(event.target.value)}
-                maxLength={9}
+                min="0"
+                max="1000000"
               />
               <ValidationError>{errorMembers}</ValidationError>
             </Label>

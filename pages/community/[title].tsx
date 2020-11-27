@@ -12,7 +12,7 @@ import {
 } from '../../components/trending/Trending.styles';
 import request from '../../modules/request';
 import { CommunityType } from '../../modules/types';
-import { AppWrapper, Content } from '../../styles/[title].styles';
+import { AppWrapper, Content } from '../../styles/communitySingle.styles';
 
 export interface CommunityProps {
   community: CommunityType[];
