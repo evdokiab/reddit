@@ -45,12 +45,7 @@ const AddCommunity = (): JSX.Element => {
         if (response.errors) {
           toast.error(response.errors[0].message, {
             position: 'top-right',
-            autoClose: 10000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
+            autoClose: 10000
           });
         } else {
           // clear form
@@ -62,26 +57,19 @@ const AddCommunity = (): JSX.Element => {
           // set success message
           toast.success(`Success! The ${title} community added!`, {
             position: 'top-right',
-            autoClose: 10000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
+            autoClose: 10000
           });
         }
       } else {
-        toast.error('Please fill the form first!');
+        toast.error('Please fill the form first!', {
+          position: 'top-right',
+          autoClose: 5000
+        });
       }
     } catch (error) {
       toast.error(error.message, {
         position: 'top-right',
-        autoClose: 10000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined
+        autoClose: 10000
       });
     }
   };
