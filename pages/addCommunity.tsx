@@ -1,9 +1,11 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 import Button from '../components/button/Button';
 import Card from '../components/card/Card';
 import { Header } from '../components/header/Header';
-import { Toast } from '../components/toast/Toast';
 import request from '../modules/request';
 import { Form, Input, Label } from '../styles/AddCommunity.styles';
 import {
@@ -17,8 +19,6 @@ const AddCommunity = (): JSX.Element => {
   const [url, setUrl] = useState('');
   const [members, setMembers] = useState(0);
   const [image, setImage] = useState('');
-  const [toastMessage, setToastMessage] = useState('');
-  const [toastType, setToastType] = useState('failed');
   const [disabled, setDisabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [errorTitle, setErrorTitle] = useState('');
@@ -37,35 +37,46 @@ const AddCommunity = (): JSX.Element => {
         }
       }
     `;
-    try {
-      const response = await request(query);
-      if (response.errors) {
-        setToastType('failed');
-        setToastMessage(response.errors[0].message);
-      } else {
-        // clear form
-        setTitle('');
-        setUrl('');
-        setMembers(0);
-        setImage('');
 
-        // set success message
-        setToastType('success');
-        setToastMessage(`Success! The ${title} community added!`);
+    try {
+      if (title && url && members && image) {
+        const response = await request(query);
+
+        if (response.errors) {
+          toast.error(response.errors[0].message, {
+            position: 'top-right',
+            autoClose: 10000
+          });
+        } else {
+          // clear form
+          setTitle('');
+          setUrl('');
+          setMembers(0);
+          setImage('');
+
+          // set success message
+          toast.success(`Success! The ${title} community added!`, {
+            position: 'top-right',
+            autoClose: 10000
+          });
+        }
+      } else {
+        toast.error('Please fill the form first!', {
+          position: 'top-right',
+          autoClose: 5000
+        });
       }
     } catch (error) {
-      setToastType('failed');
-      setToastMessage(error.message);
+      toast.error(error.message, {
+        position: 'top-right',
+        autoClose: 10000
+      });
     }
-
-    // function run after 10sec
-    setTimeout(() => {
-      setToastMessage('');
-    }, 10000);
   };
+
   const validateForm = () => {
     // validate Title  field
-    if (!title && setToastMessage) {
+    if (!title) {
       setErrorTitle('The title is required');
       setErrorMessage('An error exist try again!');
       setDisabled(true);
@@ -169,7 +180,8 @@ const AddCommunity = (): JSX.Element => {
             )}
           </Form>
         </Card>
-        {toastMessage && <Toast text={toastMessage} type={toastType} />}
+
+        <ToastContainer />
       </Content>
     </AppWrapper>
   );
